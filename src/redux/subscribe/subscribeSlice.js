@@ -7,7 +7,6 @@ export const addSubscribe = createAsyncThunk("subscribe/addSubscribe", async (em
   const response = await axios.post(`${API_URL}/subscribe`, {
     email: email,
   });
-  console.log(response.data);
   return response.data;
 });
 

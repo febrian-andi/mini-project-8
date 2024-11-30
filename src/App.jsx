@@ -23,7 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/blog" replace />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/detail" element={<BlogDetail />} />
+            <Route path="/blog/*" element={<BlogDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/newsletter" element={<Newsletter />} />
           </Routes>
