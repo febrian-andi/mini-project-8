@@ -1,6 +1,7 @@
 import React from "react";
 import BlogCardBottomDesc from "../components/blog/BlogCardBottomDesc";
 import BlogCardSideDesc from "../components/blog/BlogCardSideDesc";
+import BlogListVertical from "../components/blog/BlogListVertical";
 
 function Blog() {
   return (
@@ -37,19 +38,13 @@ function Blog() {
         <div className="hidden lg:block">
             <BlogCardSideDesc lineClampDesc={5} imageHeight={60}/>
         </div>
-        {/* <BlogCardSideDesc lineClampDesc={5} imageHeight={60}/> */}
       </div>
       <div>
         <h2 className="text-black-cstm text-2xl font-semibold py-4">
           All blog posts
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
-          <BlogCardBottomDesc />
-          <BlogCardBottomDesc />
-          <BlogCardBottomDesc />
-          <BlogCardBottomDesc />
-          <BlogCardBottomDesc />
-          <BlogCardBottomDesc />
+        <div className="mt-4">
+          <BlogListVertical />
         </div>
       </div>
     </div>
