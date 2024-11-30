@@ -4,7 +4,7 @@ function About() {
   return (
     <div>
       <div className="border-b-2">
-        <h1 className="text-black-cstm text-[70px] md:text-[150px] lg:text-[240px] text-center font-bold pb-4">
+        <h1 className="text-black-cstm text-[70px] md:text-[150px] text-center font-bold pb-4">
           John Doe
         </h1>
       </div>
