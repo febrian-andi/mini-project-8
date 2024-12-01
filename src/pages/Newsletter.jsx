@@ -18,7 +18,7 @@ function Newsletter() {
     <div>
       <HeaderSection />
       <div className="mt-16">
-        <h2 className="text-black-cstm text-2xl font-semibold py-4">
+        <h2 className="text-black-cstm dark:text-white text-2xl font-semibold py-4">
           All blog posts
         </h2>
         <div className="mt-4">

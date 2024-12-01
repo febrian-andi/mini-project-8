@@ -29,7 +29,7 @@ function BlogPostsSection() {
   return (
     <>
       <div>
-        <h2 className="text-black-cstm text-2xl font-semibold py-4">
+        <h2 className="text-black-cstm dark:text-white text-2xl font-semibold py-4">
           Recent blog posts
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-4 mb-8">
