@@ -85,14 +85,14 @@ function Navbar() {
               checked={isDarkMode}
               onChange={toggleDarkMode}
             />
-            <span className="toggle-slider bg-gray-400 rounded-full w-12 h-6 flex items-center">
+            <span className="toggle-slider bg-dark-mode-cstm dark:bg-white rounded-full w-14 h-8 flex items-center">
               <span
-                className={`toggle-icon bg-white rounded-full w-5 h-5 transition-transform ${
+                className={`toggle-icon bg-white dark:bg-dark-mode-cstm rounded-full w- h-6 mx-1 transition-transform p-1 ${
                   isDarkMode ? "transform translate-x-6" : ""
                 }`}
               >
                 {isDarkMode ? (
-                  <Moon className="w-4 h-4 text-gray-800 dark:text-gray-200 mx-auto" />
+                  <Moon className="w-4 h-4 text-gray-800  dark:text-gray-200 mx-auto" />
                 ) : (
                   <Sun className="w-4 h-4 text-gray-800 dark:text-gray-200 mx-auto" />
                 )}
