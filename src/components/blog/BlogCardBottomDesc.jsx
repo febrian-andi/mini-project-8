@@ -21,7 +21,7 @@ function BlogCardBottomDesc({ blog = {} }) {
         <p className="text-purple-cstm-200 font-semibold text-sm">
           {blog.author} • {blog.time}
         </p>
-        <Link to={`/blog/${blog.key}`} className="grid grid-cols-7 text-black-cstm hover:text-blue-500 hover:bg-purple-cstm-100">
+        <Link to={`/blog/${blog.key}`} className="grid grid-cols-7 text-black-cstm dark:text-white hover:text-blue-500 hover:bg-purple-cstm-100 dark:hover:text-blue-500 dark:hover:bg-purple-cstm-100">
           <h2 className="text-xl font-bold col-span-6 line-clamp-2">
             {blog.title}
           </h2>

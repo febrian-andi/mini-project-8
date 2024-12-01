@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
 function BlogCardSideDesc({ lineClampDesc=3, imageHeight=52, blog={} }) {
@@ -20,14 +21,14 @@ function BlogCardSideDesc({ lineClampDesc=3, imageHeight=52, blog={} }) {
         <p className="text-purple-cstm-200 font-semibold text-sm">
           {blog.author} • {blog.time}
         </p>
-        <div className="grid grid-cols-7">
-          <h2 className="text-xl text-black-cstm font-bold col-span-6 line-clamp-2">
+        <Link to={`/blog/${blog.key}`} className="grid grid-cols-7 text-black-cstm dark:text-white hover:text-blue-500 hover:bg-purple-cstm-100 dark:hover:text-blue-500 dark:hover:bg-purple-cstm-100">
+          <h2 className="text-xl font-bold col-span-6 line-clamp-2">
             {blog.title}
           </h2>
           <div className="flex justify-end">
             <ArrowUpRight size={24} />
           </div>
-        </div>
+        </Link>
         <p className={`text-gray-cstm line-clamp-${lineClampDesc}`}>
           {blog.desc}
         </p>

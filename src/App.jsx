@@ -16,7 +16,7 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <Router>
-      <div className="px-6 lg:px-32">
+      <div className="px-6 lg:px-32 dark:bg-dark-mode-cstm dark:text-white">
         <header>
           <Navbar />
         </header>
