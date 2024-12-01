@@ -1,18 +1,11 @@
 import React, { useEffect } from "react";
 import BlogListVertical from "../components/blog/BlogListVertical";
 import HeaderSection from "../components/newsletter/HeaderSection";
-import { fetchBlogs } from "../redux/blogs/blogsSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useFetchData } from "../hooks/useFetchData";
+
 
 function Newsletter() {
-  const dispatch = useDispatch();
-  const { blogs } = useSelector((state) => state.blogs);
-
-  useEffect(() => {
-    if (blogs.length === 0) {
-      dispatch(fetchBlogs());
-    }
-  }, [blogs]);
+  const { data: blogs, error, loading } = useFetchData();
 
   return (
     <div>
@@ -22,7 +15,24 @@ function Newsletter() {
           All blog posts
         </h2>
         <div className="mt-4">
-          <BlogListVertical blogs={blogs.slice(3,6)}/>
+          {loading && (
+            <div className="flex justify-center h-screen">
+              <div className="w-5 h-5 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mr-2"></div>
+              Loading...
+            </div>
+          )}
+
+          {error && (
+            <div className="text-red-500 text-center h-screen">
+              Error: {error}
+            </div>
+          )}
+
+          {!loading && !error && !blogs && (
+            <div className="text-center h-screen">No data found</div>
+          )}
+
+          {!loading && !error && blogs && blogs.length > 0 && <BlogListVertical blogs={blogs.slice(0, 3)} />}
         </div>
       </div>
     </div>

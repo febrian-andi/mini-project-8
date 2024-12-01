@@ -1,32 +1,18 @@
 import React, { useEffect } from "react";
-import BlogListVertical from "./BlogListVertical";
-import BlogListHorizontal from "./BlogListHorizontal";
-import HeaderSection from "../newsletter/HeaderSection";
+import BlogListVertical from "../components/blog/BlogListVertical";
+import BlogListHorizontal from "../components/blog/BlogListHorizontal";
+import HeaderSection from "../components/newsletter/HeaderSection";
 import { useLocation } from "react-router-dom";
-import { fetchBlogs, getBlogById } from "../../redux/blogs/blogsSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useFetchData } from "../hooks/useFetchData";
 
 function BlogDetail() {
   const location = useLocation();
   const key = location.pathname.replace("/blog/", "");
 
-  const dispatch = useDispatch();
-  const { blogs, currentBlog, loading, error } = useSelector(
-    (state) => state.blogs
-  );
+  const { data: blogs, error: blogsError, loading: blogsLoading } = useFetchData();
+  const { data: currentBlog, error: currentBlogError, loading: currentBlogLoading } = useFetchData(key);
 
-  useEffect(() => {
-    dispatch(getBlogById(key));
-    console.log("Current blog", currentBlog);
-  }, []);
-
-  useEffect(() => {
-    if (blogs.length === 0) {
-      dispatch(fetchBlogs());
-    }
-  }, [blogs]);
-
-  if (loading) {
+  if (blogsLoading || currentBlogLoading) {
     return (
       <div className="flex items-center justify-center">
         <div className="w-5 h-5 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mr-2"></div>
@@ -35,7 +21,7 @@ function BlogDetail() {
     );
   }
 
-  if (error) {
+  if (blogsError || currentBlogError) {
     return <div className="text-red-500 text-center">Error: {error}</div>;
   }
 
@@ -46,12 +32,12 @@ function BlogDetail() {
       </div>
       <div className="lg:col-span-3 space-y-4">
         <p className="text-purple-cstm-200 text-sm font-semibold">
-          {currentBlog.date}
+          {currentBlog.results.date}
         </p>
         <h1 className="text-black-cstm text-4xl font-bold">
-          {currentBlog.title}
+          {currentBlog.results.title}
         </h1>
-        <div dangerouslySetInnerHTML={{ __html: currentBlog.content }}></div>
+        <div dangerouslySetInnerHTML={{ __html: currentBlog.results.content }}></div>
         <div className="py-20">
           <HeaderSection />
         </div>

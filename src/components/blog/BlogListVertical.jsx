@@ -11,12 +11,6 @@ function BlogListVertical({ forDetail = false, blogs = [] }) {
       {blogs.map((blog) => (
         <BlogCardBottomDesc key={blog.key} blog={blog} />
       ))}
-      {/* <BlogCardBottomDesc />
-      <BlogCardBottomDesc />
-      <BlogCardBottomDesc />
-      <BlogCardBottomDesc />
-      <BlogCardBottomDesc />
-      <BlogCardBottomDesc /> */}
     </div>
   );
 }

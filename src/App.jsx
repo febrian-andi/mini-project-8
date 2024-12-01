@@ -10,7 +10,7 @@ import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Newsletter from "./pages/Newsletter";
 import Footer from "./components/Footer";
-import BlogDetail from "./components/blog/BlogDetail";
+import BlogDetail from "./pages/BlogDetail";
 import NotFound from "./pages/NotFound";
 
 function App() {

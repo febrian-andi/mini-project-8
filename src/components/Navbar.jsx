@@ -73,40 +73,21 @@ function Navbar() {
             Newsletter
           </Link>
           <div
-            className={`flex my-auto relative mt-4 md:mt-0 py-2 px-4 gap-4 rounded-full transition-all duration-300 ease-in-out cursor-pointer ${
+            className={`flex my-auto relative mt-4 md:mt-0 py-2 px-3 gap-4 rounded-full transition-all duration-300 ease-[cubic-bezier(0.42, 0, 0.58, 1)] cursor-pointer ${
               !isDarkMode === true ? "bg-black-cstm" : "bg-white"
             }`}
             onClick={toggleDarkMode}
           >
             <div
-              className={`w-6 h-6 rounded-full absolute cursor-pointer transition-all duration-300 ease-in-out ${
-                !isDarkMode === true ? "left-14 bg-white" : "left-4 bg-black-cstm"
+              className={`w-6 h-6 rounded-full absolute cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.42, 0, 0.58, 1)] ${
+                !isDarkMode === true
+                  ? "left-14 bg-white"
+                  : "right-14 bg-black-cstm"
               }`}
             ></div>
             <Sun className="text-white" />
             <Moon className="text-black-cstm" />
           </div>
-          {/* <label className="inline-flex items-center cursor-pointer mt-4 md:mt-0">
-            <input
-              type="checkbox"
-              className="hidden toggle-checkbox"
-              checked={isDarkMode}
-              onChange={toggleDarkMode}
-            />
-            <span className="toggle-slider bg-dark-mode-cstm dark:bg-white rounded-full w-14 h-8 flex items-center">
-              <span
-                className={`toggle-icon bg-white dark:bg-dark-mode-cstm rounded-full w- h-6 mx-1 transition-transform p-1 ${
-                  isDarkMode ? "transform translate-x-6" : ""
-                }`}
-              >
-                {isDarkMode ? (
-                  <Moon className="w-4 h-4 text-gray-800  dark:text-gray-200 mx-auto" />
-                ) : (
-                  <Sun className="w-4 h-4 text-gray-800 dark:text-gray-200 mx-auto" />
-                )}
-              </span>
-            </span>
-          </label> */}
         </div>
         <button
           className="block mt-auto md:hidden text-gray-600 dark:text-white hover:text-gray-800 focus:outline-none"

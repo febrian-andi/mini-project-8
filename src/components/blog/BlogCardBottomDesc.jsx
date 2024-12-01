@@ -3,13 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
 function BlogCardBottomDesc({ blog = {} }) {
-
-  if (Object.keys(blog).length === 0) {
-    return (
-      <div className="text-center font-semibold">No data found</div>
-    )
-  }
-
   return (
     <div>
       <img
