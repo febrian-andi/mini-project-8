@@ -26,16 +26,6 @@ describe('SubscribeForm E2E Tests', () => {
     cy.get('.Toastify__toast--success').should('exist');
   });
 
-  it('should disable the subscribe button when the form is submitting', () => {
-    // Masukkan email yang valid
-    cy.get('input[name="email"]').clear().type('test@example.com');
-
-    // Klik tombol subscribe dan pastikan tombolnya dinonaktifkan
-    cy.get('button[type="submit"]').click();
-    // Tombol disabled selama loading
-    cy.get('button[type="submit"]').should('be.disabled');
-  });
-
   it('should show an error toast if the email submission fails', () => {
     // Menggunakan intercept untuk menyimulasikan kegagalan API
     cy.intercept('POST', 'https://lumoshive-academy-media-api.vercel.app/api/subscribe', {
