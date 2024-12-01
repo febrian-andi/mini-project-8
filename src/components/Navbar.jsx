@@ -15,21 +15,15 @@ function Navbar() {
 
   useEffect(() => {
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {
     dispatch(changeTheme(!isDarkMode));
   };
-
-  // const [isDarkMode, setIsDarkMode] = useState(false);
-  // const toggleDarkMode = () => {
-  //   console.log(isDarkMode);
-  //   document.body.classList.toggle('dark', isDarkMode);
-  // };
 
   return (
     <div className="flex justify-between items-center py-4 relative">
@@ -49,7 +43,7 @@ function Navbar() {
         <AlignJustify size={24} />
       </button>
       <nav
-        className={`fixed md:static top-0 left-0 w-full h-screen md:h-auto bg-dark-mode-cstm md:bg-transparent z-20 transform transition-transform duration-500 ease-in-out ${
+        className={`fixed md:static top-0 left-0 w-full h-screen md:h-auto bg-white dark:bg-dark-mode-cstm md:bg-transparent z-20 transform transition-transform duration-500 ease-in-out ${
           isOpenNavbar ? "translate-y-0" : "-translate-y-full"
         } md:translate-y-0 flex flex-col md:flex-row md:justify-end justify-center items-center md:space-x-6 p-4 md:p-0 shadow-md md:shadow-none`}
       >
@@ -78,7 +72,21 @@ function Navbar() {
           >
             Newsletter
           </Link>
-          <label className="inline-flex items-center cursor-pointer mt-4 md:mt-0">
+          <div
+            className={`flex my-auto relative mt-4 md:mt-0 py-2 px-4 gap-4 rounded-full transition-all duration-300 ease-in-out cursor-pointer ${
+              !isDarkMode === true ? "bg-black-cstm" : "bg-white"
+            }`}
+            onClick={toggleDarkMode}
+          >
+            <div
+              className={`w-6 h-6 rounded-full absolute cursor-pointer transition-all duration-300 ease-in-out ${
+                !isDarkMode === true ? "left-14 bg-white" : "left-4 bg-black-cstm"
+              }`}
+            ></div>
+            <Sun className="text-white" />
+            <Moon className="text-black-cstm" />
+          </div>
+          {/* <label className="inline-flex items-center cursor-pointer mt-4 md:mt-0">
             <input
               type="checkbox"
               className="hidden toggle-checkbox"
@@ -98,7 +106,7 @@ function Navbar() {
                 )}
               </span>
             </span>
-          </label>
+          </label> */}
         </div>
         <button
           className="block mt-auto md:hidden text-gray-600 dark:text-white hover:text-gray-800 focus:outline-none"

@@ -15,7 +15,7 @@ function BlogPostsSection() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center">
+      <div className="flex justify-center h-screen">
         <div className="w-5 h-5 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mr-2"></div>
         Loading...
       </div>
@@ -23,7 +23,7 @@ function BlogPostsSection() {
   }
 
   if (error) {
-    return <div className="text-red-500 text-center">Error: {error}</div>;
+    return <div className="text-red-500 text-center h-screen">Error: {error}</div>;
   }
 
   return (
