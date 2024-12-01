@@ -1,4 +1,6 @@
 import React from "react";
+import BlogCardBottomDesc from "./BlogCardBottomDesc";
+import BlogCardSideDesc from "./BlogCardSideDesc";
 import BlogListVertical from "./BlogListVertical";
 import { useFetchData } from "../../hooks/useFetchData";
 
