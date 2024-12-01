@@ -4,6 +4,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import themeReducer from "./theme/themeSlice";
 import subscribeReducer from "./subscribe/subscribeSlice";
+import blogsReducer from "./blogs/blogsSlice";
 
 const themPersistConfig = {
   key: "isDarkMode",
@@ -15,6 +16,7 @@ const persitedThemeReducer = persistReducer(themPersistConfig, themeReducer);
 const rootReducer = combineReducers({
   isDarkMode: persitedThemeReducer,
   subscribe: subscribeReducer,
+  blogs: blogsReducer,
 });
 
 export const store = configureStore({

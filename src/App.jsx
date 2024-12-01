@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Newsletter from "./pages/Newsletter";
 import Footer from "./components/Footer";
 import BlogDetail from "./components/blog/BlogDetail";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -23,9 +24,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/blog" replace />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/detail" element={<BlogDetail />} />
+            <Route path="/blog/*" element={<BlogDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/newsletter" element={<Newsletter />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
