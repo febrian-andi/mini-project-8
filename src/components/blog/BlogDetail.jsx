@@ -1,40 +1,63 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BlogListVertical from "./BlogListVertical";
 import BlogListHorizontal from "./BlogListHorizontal";
 import HeaderSection from "../newsletter/HeaderSection";
+import { useLocation } from "react-router-dom";
+import { fetchBlogs, getBlogById } from "../../redux/blogs/blogsSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function BlogDetail() {
+  const location = useLocation();
+  const key = location.pathname.replace("/blog/", "");
+
+  const dispatch = useDispatch();
+  const { blogs, currentBlog, loading, error } = useSelector(
+    (state) => state.blogs
+  );
+
+  useEffect(() => {
+    dispatch(getBlogById(key));
+    console.log("Current blog", currentBlog);
+  }, []);
+
+  useEffect(() => {
+    if (blogs.length === 0) {
+      dispatch(fetchBlogs());
+    }
+  }, [blogs]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center">
+        <div className="w-5 h-5 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mr-2"></div>
+        Loading...
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div className="text-red-500 text-center">Error: {error}</div>;
+  }
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
       <div className="hidden lg:block">
-        <BlogListVertical forDetail={true} />
+        <BlogListVertical forDetail={true} blogs={blogs.slice(0, 5)} />
       </div>
       <div className="lg:col-span-3 space-y-4">
         <p className="text-purple-cstm-200 text-sm font-semibold">
-          Sunday , 1 Jan 2023
+          {currentBlog.date}
         </p>
         <h1 className="text-black-cstm text-4xl font-bold">
-          Grid system for better Design User Interface
+          {currentBlog.title}
         </h1>
-        <img
-          src="https://picsum.photos/400/300"
-          alt="Blog post image"
-          className="w-full h-60 object-cover"
-        />
-        <p>
-          A grid system is a design tool used to arrange content on a webpage.
-          It is a series of vertical and horizontal lines that create a matrix
-          of intersecting points, which can be used to align and organize page
-          elements. Grid systems are used to create a consistent look and feel
-          across a website, and can help to make the layout more visually
-          appealing and easier to navigate.
-        </p>
-        <div>
+        <div dangerouslySetInnerHTML={{ __html: currentBlog.content }}></div>
+        <div className="py-20">
           <HeaderSection />
         </div>
       </div>
       <div className="block lg:hidden mt-10">
-        <BlogListHorizontal />
+        <BlogListHorizontal blogs={blogs.slice(0, 5)}/>
       </div>
     </div>
   );

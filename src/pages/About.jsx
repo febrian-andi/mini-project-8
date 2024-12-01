@@ -1,4 +1,5 @@
 import React from "react";
+import PhotoAbout from "../assets/images/photo-about.jpg";
 
 function About() {
   return (
@@ -9,7 +10,7 @@ function About() {
         </h1>
       </div>
       <img
-        src="https://picsum.photos/400/300"
+        src={PhotoAbout}
         alt="John Doe"
         className="w-full h-[300px] md:h-[500px] object-cover mb-4"
       />

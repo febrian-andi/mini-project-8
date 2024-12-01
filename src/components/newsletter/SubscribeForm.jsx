@@ -46,7 +46,7 @@ function SubscribeForm() {
         />
         <button
           type="submit"
-          className={`w-24 flex justify-center items-center bg-purple-500 hover:bg-purple-cstm-200 text-white px-4 py-2 rounded-md ${
+          className={`w-full md:w-24 flex justify-center items-center bg-purple-500 hover:bg-purple-cstm-200 text-white px-4 py-2 rounded-md ${
             loading ? "opacity-50 cursor-not-allowed" : ""
           }`}
           disabled={loading}
