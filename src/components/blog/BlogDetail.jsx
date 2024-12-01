@@ -52,7 +52,7 @@ function BlogDetail() {
           {currentBlog.title}
         </h1>
         <div dangerouslySetInnerHTML={{ __html: currentBlog.content }}></div>
-        <div>
+        <div className="py-20">
           <HeaderSection />
         </div>
       </div>

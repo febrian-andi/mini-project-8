@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Newsletter from "./pages/Newsletter";
 import Footer from "./components/Footer";
 import BlogDetail from "./components/blog/BlogDetail";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/blog/*" element={<BlogDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/newsletter" element={<Newsletter />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

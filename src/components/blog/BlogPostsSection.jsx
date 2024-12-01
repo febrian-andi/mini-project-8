@@ -11,7 +11,7 @@ function BlogPostsSection() {
 
   useEffect(() => {
     dispatch(fetchBlogs());
-  }, [dispatch]);
+  }, []);
 
   if (loading) {
     return (

@@ -2,6 +2,13 @@ import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
 function BlogCardSideDesc({ lineClampDesc=3, imageHeight=52, blog={} }) {
+  
+  if (Object.keys(blog).length === 0) {
+    return (
+      <div className="text-center font-semibold">No data found</div>
+    )
+  }
+
   return (
     <div className="grid grid-cols-2 gap-4">
       <img
