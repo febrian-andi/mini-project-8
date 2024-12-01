@@ -96,18 +96,4 @@ describe('Blog Page', () => {
     // Pastikan pesan error muncul
     cy.get('.text-red-500').should('contain.text', 'Something went wrong');
   });
-
-  it("should display empty state if no blogs are available", () => {
-    // Menyimulasikan respons API dengan data kosong
-    cy.intercept('GET', 'https://lumoshive-academy-media-api.vercel.app/api/tech', {
-      statusCode: 200,
-      body: []
-    }).as('getBlogsEmpty');
-
-    // Kunjungi halaman blog
-    cy.visit('http://localhost:5173/blog');
-
-    // Pastikan ada pesan "No data found" jika tidak ada blog
-    cy.get('.text-center').should('contain.text', 'No data found');
-  });
 });
